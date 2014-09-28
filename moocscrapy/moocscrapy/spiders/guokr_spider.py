@@ -9,8 +9,8 @@ class GuokrSpider(scrapy.Spider):
 	]
 
 	def parse(self, response):
-		for sel in response.xpath('//a[@class="listinglink"]'):
+		for sel in response.xpath('//li[@class="course"]'):
 			item = MoocscrapyItem()
-			item['title'] = sel.xpath('text()').extract()[0]
-			item['link'] = sel.xpath('@href').extract()[0]
+			item['title'] = sel.xpath('h2//a//span/text()').extract()[0]
+			item['link'] = sel.xpath('h2//a/@href').extract()[0]
 			yield item
