@@ -13,5 +13,9 @@ BOT_NAME = 'moocscrapy'
 SPIDER_MODULES = ['moocscrapy.spiders']
 NEWSPIDER_MODULE = 'moocscrapy.spiders'
 
+ITEM_PIPELINES = {
+    'moocscrapy.pipelines.MoocscrapyPipeline': 800,
+}
+
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'moocscrapy (+http://www.yourdomain.com)'

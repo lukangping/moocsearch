@@ -12,6 +12,7 @@ class MoocscrapyItem(scrapy.Item):
     # define the fields for your item here like:
     # name = scrapy.Field()
     # pass
+    id = scrapy.Field()
     title = scrapy.Field()
     link = scrapy.Field()
     fromsite = scrapy.Field()

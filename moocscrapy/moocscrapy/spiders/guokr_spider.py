@@ -1,4 +1,5 @@
 import scrapy
+import re
 from moocscrapy.items import MoocscrapyItem
 
 class GuokrSpider(scrapy.Spider):
@@ -13,4 +14,9 @@ class GuokrSpider(scrapy.Spider):
 			item = MoocscrapyItem()
 			item['title'] = sel.xpath('h2//a//span/text()').extract()[0]
 			item['link'] = sel.xpath('h2//a/@href').extract()[0]
+
+			m = re.search('(?<=course\/)\d+', item['link'])
+			if m:
+				item['id'] = 'guokr_' + str(m.group(0))
+
 			yield item
