@@ -26,7 +26,7 @@
 				sectionsColor: ['#fff', '#fff', '#fff', 'whitesmoke', '#ccddff'],
 				anchors: ['firstPage', 'secondPage', '3rdPage', '4thpage', 'lastPage'],
 				menu: '#menu',
-				easing: 'easeOutBack'
+				css3: true
 			});
 
 		});
@@ -39,24 +39,69 @@
 
 <!-- <img src="{% static "images/mooc_search.png" %}" alt="My image"/> -->
 
-<ul id="menu">
+<!-- <ul id="menu">
 	<li data-menuanchor="firstPage" class="active"><a href="#firstPage">Search 搜索</a></li>
 	<li data-menuanchor="secondPage"><a href="#secondPage">Index 索引</a></li>
 	<li data-menuanchor="3rdPage"><a href="#3rdPage">About 关于</a></li>
-</ul>
+</ul> -->
 
 <div id="fullpage">
 	<div class="section " id="section0">
-		<form action="/search" method="get">
-			<input type="text" name="keywords"/>
-			<input type="submit" value="search">
-		</form>
+		<div id="container">
+			<h1 class="fontlato">Mooc Search, best engine for learning material </h1>
+			<h2 class="fontlato">Massive & Latest Course or Class</h2>
+			<form action="/search" method="get">
+				<input class="text" type="text" name="keywords"/>
+				<input class="btn" type="submit" value="search">
+			</form>
+		</div>
 	</div>
 	<div class="section" id="section1">
-		<h1>section1<h1>	
-	</div>
-	<div class="section" id="section2">
-		<h1>section2<h1>
+		<div class="row">
+			<div class="col">
+				<h3>University</h3>
+				<ul>
+					<li class="item">耶鲁大学</li>
+					<li class="item">哈佛大学</li>
+					<li class="item">剑桥大学</li>
+					<li class="item">牛津大学</li>
+					<li class="item">斯坦福大学</li>
+					<li class="item">诺丁汉大学</li>
+					<li class="item">麻省理工学院</li>
+					<li class="item">普林斯顿大学</li>
+					<li class="item">弗吉尼亚理工大学</li>
+				</ul>
+			</div>
+			<div class="col">
+				<h3>Commercial</h3>
+				<ul>
+					<li class="item">Coursera</li>
+					<li class="item">edX</li>
+					<li class="item">TED</li>
+					<li class="item">果壳学院</li>
+					<li class="item">网易公开课</li>
+					<li class="item">新浪公开课</li>
+					<li class="item">优酷公开课</li>
+					<li class="item">北大公开课</li>
+					<li class="item">清华学堂在线</li>
+					<li class="item">土豆公开课</li>
+					<li class="item">多贝公开课</li>
+					<li class="item">超星慕课</li>
+					<li class="item">过来人</li>
+					<li class="item">爱课程</li>
+				</ul>
+			</div>
+			<div class="col">
+				<h3>Community</h3>
+				<ul>
+					<li class="item">开源力量</li>
+					<li class="item"></li>
+				</ul>
+			</div>
+		</div>
+		<div class="copyright">
+			Copyright 2014 MoocSearch. All rights reserved.
+		</div>
 	</div>
 </div>
 </body>

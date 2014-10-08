@@ -1,5 +1,53 @@
-<ul>
-{% for course in courses %}
-	<li><a href="{{ course.link }}">{{ course.title }}</a></li>
-{% endfor %}
-</ul>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Easing effect - fullPage.js</title>
+	<meta name="description" content="mooc search 慕课 搜索" />
+	<meta name="keywords"  content="mooc search 慕课 搜索" />
+
+
+	<link rel="stylesheet" type="text/css" href="../static/css/jquery.fullPage.css" />
+	<link rel="stylesheet" type="text/css" href="../static/css/examples.css" />
+
+	<!--[if IE]>
+		<script type="text/javascript">
+			 var console = { log: function() {} };
+		</script>
+	<![endif]-->
+
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
+
+	<script type="text/javascript" src="../static/js/jquery.fullPage.js"></script>
+	<script type="text/javascript" src="../static/js/examples.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('#fullpage').fullpage({
+				sectionsColor: ['#fff', '#fff', '#fff', 'whitesmoke', '#ccddff'],
+				anchors: ['firstPage', 'secondPage', '3rdPage', '4thpage', 'lastPage'],
+				menu: '#menu',
+				css3: true
+			});
+
+		});
+	</script>
+
+</head>
+<body>
+	<div class="navbar">
+		<div class="navbar-container">
+			<form action="/search" method="get">
+				<input class="navbar-text" type="text" name="keywords"/>
+				<input class="navbar-btn" type="submit" value="search">
+			</form>
+		</div>
+	</div>
+	<div class="results">
+		<ul>
+			{% for course in courses %}
+				<li><a href="{{ course.link }}">{{ course.title }}</a></li>
+			{% endfor %}
+		</ul>
+	</div>
+</body>
+</html>
