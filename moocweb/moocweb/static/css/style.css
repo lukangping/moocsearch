@@ -1,0 +1,19 @@
+body {
+	min-height: 100%;
+	cursor: default;
+	min-width: 940px;
+	/*background-color: #333*/
+}
+
+header {
+	height: 100px;
+	background-color: white;
+	padding: 0px;
+	margin: 0px;
+	border: 0px;
+}
+
+img {
+	width: 200px;
+	height: 200px;
+}

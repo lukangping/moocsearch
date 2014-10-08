@@ -1,4 +1,63 @@
-<form action="/search" method="get">
-	<input type="text" name="keywords"/>
-	<input type="submit" value="search">
-</form>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Easing effect - fullPage.js</title>
+	<meta name="description" content="mooc search 慕课 搜索" />
+	<meta name="keywords"  content="mooc search 慕课 搜索" />
+
+
+	<link rel="stylesheet" type="text/css" href="../static/css/jquery.fullPage.css" />
+	<link rel="stylesheet" type="text/css" href="../static/css/examples.css" />
+
+	<!--[if IE]>
+		<script type="text/javascript">
+			 var console = { log: function() {} };
+		</script>
+	<![endif]-->
+
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
+
+	<script type="text/javascript" src="../static/js/jquery.fullPage.js"></script>
+	<script type="text/javascript" src="../static/js/examples.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('#fullpage').fullpage({
+				sectionsColor: ['#fff', '#fff', '#fff', 'whitesmoke', '#ccddff'],
+				anchors: ['firstPage', 'secondPage', '3rdPage', '4thpage', 'lastPage'],
+				menu: '#menu',
+				easing: 'easeOutBack'
+			});
+
+		});
+	</script>
+
+</head>
+<body>
+{% load staticfiles %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
+
+<!-- <img src="{% static "images/mooc_search.png" %}" alt="My image"/> -->
+
+<ul id="menu">
+	<li data-menuanchor="firstPage" class="active"><a href="#firstPage">Search 搜索</a></li>
+	<li data-menuanchor="secondPage"><a href="#secondPage">Index 索引</a></li>
+	<li data-menuanchor="3rdPage"><a href="#3rdPage">About 关于</a></li>
+</ul>
+
+<div id="fullpage">
+	<div class="section " id="section0">
+		<form action="/search" method="get">
+			<input type="text" name="keywords"/>
+			<input type="submit" value="search">
+		</form>
+	</div>
+	<div class="section" id="section1">
+		<h1>section1<h1>	
+	</div>
+	<div class="section" id="section2">
+		<h1>section2<h1>
+	</div>
+</div>
+</body>
+</html>
