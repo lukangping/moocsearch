@@ -25,4 +25,4 @@ def search(request):
 		title = course["_source"]["title"]
 		link  = course["_source"]["link"]
 		courses.append({'cid':cid, 'title':title, 'link':link})
-	return render(request, 'results.html', {'courses':courses})
+	return render(request, 'results.html', {'courses':courses, 'keywords':request.GET['keywords']})
