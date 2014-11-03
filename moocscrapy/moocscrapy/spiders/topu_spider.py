@@ -10,10 +10,12 @@ class TopuSpider(scrapy.Spider):
 	]
 
 	def parse(self, response):
-		for sel in response.xpath('//dl[@class="zhibo_dl zhibo_dl_linshi"]/dd[@class="title title_linshi"]'):
+		for sel in response.xpath('//dl[@class="zhibo_dl zhibo_dl_linshi"]/dt'):
 			item = MoocscrapyItem()
 			item['title'] = sel.xpath('a/@title').extract()[0]
-			item['link'] = sel.xpath('a/@href').extract()[0]
+			item['link'] = "http://www.topu.com" + sel.xpath('a/@href').extract()[0]
+			item['image'] = "http://www.topu.com" + sel.xpath('a//img/@src').extract()[0]
+			item['site'] = 'topu'
 
 			m = re.search('(?<=mooc\/)\d+', item['link'])
 			if m:

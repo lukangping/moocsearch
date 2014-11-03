@@ -11,4 +11,5 @@ urlpatterns = patterns('',
 	# url(r'^test/$', views.test, name='test'),
 	# url(r'^search/(?P<keywords>.*)/$', views.search, name='search'),
 	url(r'^search$', views.search, name='search'),
+	url(r'^test$', views.test, name='test'),
 )

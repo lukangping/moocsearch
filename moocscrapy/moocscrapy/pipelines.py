@@ -11,7 +11,8 @@ class MoocscrapyPipeline(object):
     
     def process_item(self, item, spider):
     	url = "http://localhost:9200/moocsearch/course/" + item['id'] + '/_create'
-    	payload = {'title': item['title'], 'link': item['link']}
+    	payload = {'title': item['title'], 'link': item['link'], 
+    			   'image':item['image'], 'site': item['site']}
     	headers = {'content-type': 'application/json'}
 
     	requests.put(url, data=json.dumps(payload), headers=headers);

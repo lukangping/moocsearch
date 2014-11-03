@@ -15,6 +15,7 @@ class MoocscrapyItem(scrapy.Item):
     id = scrapy.Field()
     title = scrapy.Field()
     link = scrapy.Field()
-    fromsite = scrapy.Field()
+    site = scrapy.Field()
+    image = scrapy.Field()
 
 

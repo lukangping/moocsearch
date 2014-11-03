@@ -335,7 +335,7 @@ p{
  	margin: 20px 0px;
  }
 
- .item {
+ .linkitem {
  	text-align: left;
  	margin: 4px 0px;
  	font-size: 15px;
@@ -396,6 +396,11 @@ p{
 	margin: 40px auto;
 }
 
-.results li {
-	margin: 8px auto 0px;
+.results .item {
+	margin: 30px;
+}
+
+.results img {
+	width: 200px;
+	height: 120px;
 }

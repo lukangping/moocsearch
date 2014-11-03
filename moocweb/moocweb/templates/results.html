@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -5,7 +6,6 @@
 	<meta name="description" content="{{keywords}}相关的公开课,还在为找不到满意的公开课而烦恼么，试试mooc search，慕课搜索是目前最专业的mooc搜索网站。" />
 	<meta name="keywords"  content="{{keywords}},mooc,search,慕课搜索,mooc 慕课,MOOC中文,mooc搜索,公开课" />
 
-	<link rel="stylesheet" type="text/css" href="../static/css/jquery.fullPage.css" />
 	<link rel="stylesheet" type="text/css" href="../static/css/examples.css" />
 
 	<!--[if IE]>
@@ -14,20 +14,20 @@
 		</script>
 	<![endif]-->
 
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
-
-	<script type="text/javascript" src="../static/js/jquery.fullPage.js"></script>
-	<script type="text/javascript" src="../static/js/examples.js"></script>
+	<script src="../static/js/jquery.min.js"></script>
+  	<script type="text/javascript" src="../static/js/jquery-ias.min.js"></script>
 	<script type="text/javascript">
-		$(document).ready(function() {
-			$('#fullpage').fullpage({
-				sectionsColor: ['#fff', '#fff', '#fff', 'whitesmoke', '#ccddff'],
-				anchors: ['firstPage', 'secondPage', '3rdPage', '4thpage', 'lastPage'],
-				menu: '#menu',
-				css3: true
-			});
+		$(function() {
+			var ias = $.ias({
+		      container: ".results",
+		      item: ".item",
+		      pagination: "#pagination",
+		      next: ".next a"
+		    });
 
+		    ias.extension(new IASSpinnerExtension());
+		    ias.extension(new IASTriggerExtension({offset: 20}));
+		    ias.extension(new IASNoneLeftExtension({text: 'There are no more pages left to load.'}));
 		});
 	</script>
 
@@ -42,11 +42,15 @@
 		</div>
 	</div>
 	<div class="results">
-		<ul>
-			{% for course in courses %}
-				<li><a href="{{ course.link }}">{{ course.title }}</a></li>
-			{% endfor %}
-		</ul>
+		{% for course in courses %}
+			<div class="item">
+				<img src="{{ course.image }}">
+				<a href="{{ course.link }}">{{ course.title }}</a>
+			</div>
+		{% endfor %}
 	</div>
+	<ul id="pagination" style="display: none;">
+		<li class="next"><a href="{{nexturl}}"></a></li>
+	</ul>
 </body>
 </html>
